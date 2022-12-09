@@ -6,18 +6,14 @@ if len(sys.argv) < 2:
 
 movements = open(sys.argv[1], 'r')
 
-positions_visited = ["0, 0"]
+positions_visited = {"0, 0"}
 
 xpos = [0,0,0,0,0,0,0,0,0,0]
 ypos = [0,0,0,0,0,0,0,0,0,0]
 
-lastx = [0,0,0,0,0,0,0,0,0,0]
-lasty = [0,0,0,0,0,0,0,0,0,0]
-
 def tailVisit():
-    if not (str(xpos[9]) + ", " + str(ypos[9])) in positions_visited:
-        positions_visited.append(str(xpos[9]) + ", " +str(ypos[9]))
-
+    positions_visited.add(str(xpos[9]) + ", " +str(ypos[9]))
+    
 while True:
     line = movements.readline()
     linecontent = line.strip()
@@ -61,7 +57,6 @@ while True:
                     xpos[j+1] -=1
             if j == 8:
                 tailVisit()
-                
 
 movements.close()
 
