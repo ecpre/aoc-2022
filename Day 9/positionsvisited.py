@@ -17,7 +17,6 @@ def tailVisit():
 while True:
     line = movements.readline()
     linecontent = line.strip()
-
     command = linecontent.split(" ")
 
     if not line:
