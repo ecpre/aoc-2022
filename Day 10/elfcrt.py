@@ -32,9 +32,8 @@ instructions.close()
 
 lit = []
 
-#i'm pretty sure this code is flawed but it still worked so...
 for i in range(len(vals)):
-    if (i%40 == vals[i]%40-1) or (i%40 == vals[i]%40) or (i%40 == vals[i]%40+1):
+    if (i%40 == vals[i]-1) or (i%40 == vals[i]) or (i%40 == vals[i]+1):
         lit.append("#")
     else:
         lit.append(".")
@@ -42,11 +41,3 @@ for i in range(len(vals)):
 for i in range(6):
     print(''.join(lit[:40]))
     lit = lit[40:]
-    
-
-
-
-
-
-    
-    
