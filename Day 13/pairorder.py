@@ -39,21 +39,18 @@ def compare_numbers(pair1, pair2):
                 return False
             elif len(pair1) < len(pair2):
                 return True
-            else:
-                return None
+            return None
     elif isinstance(pair1, list):
         pair2 = [pair2]
         return compare_numbers(pair1, pair2)
     elif isinstance(pair2, list):
         pair1 = [pair1]
         return compare_numbers(pair1, pair2)
-    else:
-        if pair1 < pair2:
-            return True
-        if pair1 > pair2:
-            return False
-        else:
-            return None
+    if pair1 < pair2:
+        return True
+    if pair1 > pair2:
+        return False
+    return None
 
 
 pairtrue = []
@@ -76,11 +73,7 @@ for i in range(len(pairtrue)):
 totalpairs = pairs1 + pairs2
 totalpairs.append([[2]])
 totalpairs.append([[6]])
-print(totalpairs)
 totalpairs.sort(key=functools.cmp_to_key(compare_numbers_key), reverse=True)
 
 print(total)
-
-print(totalpairs)
-
 print((totalpairs.index([[2]])+1) * (totalpairs.index([[6]])+1))
