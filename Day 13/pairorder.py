@@ -57,9 +57,9 @@ pairtrue = []
 #stupid hack instead of changing return of compare_numbers
 def compare_numbers_key(pair1,pair2):
     if compare_numbers(pair1,pair2):
-        return 1
-    elif compare_numbers(pair1,pair2) == False:
         return -1
+    elif compare_numbers(pair1,pair2) == False:
+        return 1
     return 0
 
 for i in range(len(pairs1)):
@@ -73,7 +73,7 @@ for i in range(len(pairtrue)):
 totalpairs = pairs1 + pairs2
 totalpairs.append([[2]])
 totalpairs.append([[6]])
-totalpairs.sort(key=functools.cmp_to_key(compare_numbers_key), reverse=True)
+totalpairs.sort(key=functools.cmp_to_key(compare_numbers_key))
 
 print(total)
 print((totalpairs.index([[2]])+1) * (totalpairs.index([[6]])+1))
