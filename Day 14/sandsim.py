@@ -11,10 +11,7 @@ rockandsand = {(0,0)}
 #ugly hack that isn't really necessary
 rockandsand.remove((0,0))
 fallensand = 0
-
 yvalues = {0}
-
-xdiff = 489
 
 while True:
     line = cavescan.readline()
@@ -28,12 +25,10 @@ while True:
     last = (int(last[0]), int(last[1]))
     rockandsand.add(last)
     for i in range (1, len(linesplit)):
-        print("hello")
         this = linesplit[i].split(",")
         this = (int(this[0]), int(this[1]))
         this2 = this
         rockandsand.add(this)
-        print("hello")
         while this2[0] < last[0]:
             this2 = (this2[0]+1, this2[1])
             rockandsand.add(this2)
@@ -50,14 +45,12 @@ while True:
         last = this
 
 abyss = False
-
 maxy = max(yvalues)+2
-
 #some arbitrarily large value i guess
-
 for i in range (-200, 800):
     rockandsand.add((i, maxy))
 
+#really ugly
 while not abyss:
     sandloc = [500,0]
     falling = True
@@ -78,12 +71,8 @@ while not abyss:
             sandloc = [sandloc[0], sandloc[1]+1]
         fallingtime += 1
     rockandsand.add(tuple(sandloc))
-    print(fallensand)
     fallensand += 1
-    
-        
-
-        
-print(rockandsand)
+           
+#print(rockandsand)
 print(fallensand)
 cavescan.close()
